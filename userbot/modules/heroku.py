@@ -119,7 +119,7 @@ async def dyno_usage(dyno):
     """
     Get your account Dyno Usage
     """
-    await dyno.edit("`Getting Information...`")
+    await dyno.edit("`Mendapatkan informasi...`")
     useragent = (
         "Mozilla/5.0 (Linux; Android 10; SM-G975F) "
         "AppleWebKit/537.36 (KHTML, like Gecko) "
@@ -167,12 +167,12 @@ async def dyno_usage(dyno):
 
             await dyno.edit(
                 "**Dyno Usage**:\n\n"
-                f"-> `Dyno usage for`  **{app.name}**:\n"
-                f"     •  **{AppHours} hour(s), "
-                f"{AppMinutes} minute(s)  -  {AppPercentage}%**"
+                f"-> `Penggunaan Dyno for`  **{app.name}**:\n"
+                f"     •  **{AppHours} jam(s), "
+                f"{AppMinutes} menit(s)  -  {AppPercentage}%**"
                 "\n\n"
-                "-> `Dyno hours quota remaining this month`:\n"
-                f"     •  **{hours} hour(s), {minutes} minute(s)  "
+                "-> `Sisa kuota jam Dyno bulan ini`:\n"
+                f"     •  **{hours} jam(s), {minutes} menit(s)  "
                 f"-  {percentage}%**"
             )
             return True

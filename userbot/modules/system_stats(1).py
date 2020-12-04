@@ -133,13 +133,13 @@ async def amireallyalive(alive):
     """For .alive command, check if the bot is running."""
     logo = ALIVE_LOGO
     output = (
-        f"`WeebProject aktif, siap melayani Anda`\n"
+        f"`KasumiC Aktif, siap melayani Anda`\n"
         f"`=====================================`\n"
         f"`• Python         :` v{python_version()}\n"
         f"`• Telethon       :` v{version.__version__}\n"
         f"`• Pengguna       :` {DEFAULTUSER}\n"
         f"`=====================================`\n"
-        f"`======== berjalan di {repo.active_branch.name} =========`\n"
+        f"`======== Berjalan Di {repo.active_branch.name} =========`\n"
     )
     if ALIVE_LOGO:
         try:

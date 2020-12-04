@@ -21,7 +21,7 @@ async def help(event):
         else:
             msg = await event.edit("Please specify a valid module name.")
     else:
-        head = "**Help for** [WeebProject](https://github.com/BianSepang/WeebProject)"
+        head = "**Help for** [KasumiC](https://github.com/AmamiyaRen666/WeebProject)"
         head2 = "Please specify which module do you want help for !!"
         head3 = "Usage: .help <module name>"
         head4 = "List for all available command below: "

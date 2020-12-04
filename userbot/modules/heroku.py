@@ -117,7 +117,7 @@ async def set_var(var):
 @register(outgoing=True, pattern=r"^\.usage(?: |$)")
 async def dyno_usage(dyno):
     """
-    Get your account Dyno Usage
+    Get your account Penggunaan Dyno
     """
     await dyno.edit("`Mendapatkan informasi...`")
     useragent = (

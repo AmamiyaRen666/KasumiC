@@ -237,7 +237,7 @@ async def approvepm(apprvpm):
         await apprvpm.edit("`Pengguna mungkin sudah disetujui.`")
         return
 
-    await apprvpm.edit(f"[{name0}](tg://user?id={uid}) `approved to PM!`")
+    await apprvpm.edit(f"[{name0}](tg://user?id={uid}) `diizinkan kirim PESAN!`")
 
     if BOTLOG:
         await apprvpm.client.send_message(

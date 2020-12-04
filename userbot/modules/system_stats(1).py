@@ -135,9 +135,9 @@ async def amireallyalive(alive):
     output = (
         f"`WeebProject aktif, siap melayani Anda`\n"
         f"`=====================================`\n"
-        f"`• Python         :   v{python_version()}`\n"
-        f"`• Telethon       :   v{version.__version__}`\n"
-        f"`• Pengguna       :   {DEFAULTUSER}`\n"
+        f"`• Python         :` v{python_version()}\n"
+        f"`• Telethon       :` v{version.__version__}\n"
+        f"`• Pengguna       :` {DEFAULTUSER}\n"
         f"`=====================================`\n"
         f"`======== berjalan di {repo.active_branch.name} =========`\n"
     )

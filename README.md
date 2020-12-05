@@ -1,4 +1,4 @@
-# WeebProject Userbot
+# KasumiC
 
 ```
 #include <std/disclaimer.h>

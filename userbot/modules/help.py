@@ -21,10 +21,10 @@ async def help(event):
         else:
             msg = await event.edit("Please specify a valid module name.")
     else:
-        head = "**Help for** [KasumiC](https://github.com/AmamiyaRen666/WeebProject)"
-        head2 = "Please specify which module do you want help for !!"
-        head3 = "Usage: .help <module name>"
-        head4 = "List for all available command below: "
+        head = "**Membantu untuk** [KasumiC](https://github.com/AmamiyaRen666/KasumiC)"
+        head2 = "Harap tentukan modul mana yang Anda ingin bantuannya !!"
+        head3 = "Pemakaian: .help <module name>"
+        head4 = "Daftar semua perintah yang tersedia di bawah ini: "
         string = ""
         sep1 = "••••••••••••••••••••••••••••••••••••••••••••••"
         sep2 = "========================================="

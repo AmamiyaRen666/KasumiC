@@ -42,7 +42,7 @@ async def gen_chlog(repo, diff):
 
 async def print_changelogs(event, ac_br, changelog):
     changelog_str = (
-        f"**New UPDATE available for [{ac_br}]:\n\nCHANGELOG:**\n`{changelog}`"
+        f"**UPDATE baru tersedia untuk [{ac_br}]:\n\nCHANGELOG:**\n`{changelog}`"
     )
     if len(changelog_str) > 4096:
         await event.edit("`Changelog is too big, view the file to see it.`")
@@ -87,8 +87,8 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
         heroku_applications = heroku.apps()
         if HEROKU_APP_NAME is None:
             await event.edit(
-                "`Please set up HEROKU_APP_NAME variable"
-                " to be able to deploy your userbot...`"
+                "`Harap siapkan HEROKU_APP_NAME variabel"
+                " untuk dapat menggunakan userbot Anda...`"
             )
             repo.__del__()
             return
@@ -98,10 +98,10 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
                 break
         if heroku_app is None:
             await event.edit(
-                f"{txt}\n" "`Invalid Heroku credentials for deploying userbot dyno.`"
+                f"{txt}\n" "`Kredensial Heroku tidak valid untuk penerapan userbot dyno.`"
             )
             return repo.__del__()
-        await event.edit("`Userbot dyno build in progress, please wait...`")
+        await event.edit("`Userbot dyno sedang dalam proses, harap tunggu...`")
         ups_rem.fetch(ac_br)
         repo.git.reset("--hard", "FETCH_HEAD")
         heroku_git_url = heroku_app.git_url.replace(
@@ -120,14 +120,14 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
         build = app.builds(order_by="created_at", sort="desc")[0]
         if build.status == "failed":
             await event.edit(
-                "`Build failed!\n" "Cancelled or there were some errors...`"
+                "`Build gagal!\n" "Dibatalkan atau ada beberapa kesalahan...`"
             )
             await asyncio.sleep(5)
             return await event.delete()
         else:
-            await event.edit("`Successfully deployed!\n" "Restarting, please wait...`")
+            await event.edit("`Berhasil deployed!\n" "Restarting, tunggu sebentar...`")
     else:
-        await event.edit("`Please set up HEROKU_API_KEY variable...`")
+        await event.edit("`Harap siapkan HEROKU_API_KEY variable...`")
     return
 
 
@@ -138,7 +138,7 @@ async def update(event, repo, ups_rem, ac_br):
         repo.git.reset("--hard", "FETCH_HEAD")
     await update_requirements()
     await event.edit(
-        "`Successfully Updated!\n" "Bot is restarting... Wait for a second!`"
+        "`Berhasil Update!\n" "Bot sedang restart... Tunggu sebentar!`"
     )
     # Spin a new instance of bot
     args = [sys.executable, "-m", "userbot"]

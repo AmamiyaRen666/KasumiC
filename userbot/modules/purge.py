@@ -30,12 +30,12 @@ async def fastpurger(purg):
                 await purg.client.delete_messages(chat, msgs)
                 msgs = []
     else:
-        return await purg.edit("`I need a mesasge to start purging from.`")
+        return await purg.edit("`Saya perlu pesan untuk mulai membersihkan.`")
 
     if msgs:
         await purg.client.delete_messages(chat, msgs)
     done = await purg.client.send_message(
-        purg.chat_id, "`Fast purge complete!`" f"\nPurged {str(count)} messages"
+        purg.chat_id, "`Pembersihan cepat selesai!`" f"\n`Menghapus {str(count)} pesan.`"
     )
     """
     if BOTLOG:
@@ -62,7 +62,7 @@ async def purgeme(delme):
 
     smsg = await delme.client.send_message(
         delme.chat_id,
-        "`Purge complete!` Purged " + str(count) + " messages.",
+        "`Pembersihan selesai!`\n`Menghapus " + str(count) + " pesan.`",
     )
     """
     if BOTLOG:
@@ -89,7 +89,7 @@ async def delete_it(delme):
                     BOTLOG_CHATID, "Deletion of message was successful")
             """
         except rpcbaseerrors.BadRequestError:
-            await delme.edit("Well, I can't delete a message")
+            await delme.edit("Yah, saya tidak bisa menghapus pesan.")
             """
             if BOTLOG:
                 await delme.client.send_message(
@@ -137,14 +137,14 @@ async def selfdestruct(destroy):
 
 CMD_HELP.update(
     {
-        "purge": ">`.purge`" "\nUsage: Purges all messages starting from the reply.",
+        "purge": ">`.purge`" "\nUntuk: Hapus semua pesan mulai dari yang dibalas.",
         "purgeme": ">`.purgeme <x>`"
-        "\nUsage: Deletes x amount of your latest messages.",
-        "del": ">`.del`" "\nUsage: Deletes the message you replied to.",
-        "edit": ">`.edit <newmessage>`"
-        "\nUsage: Replace your last message with <newmessage>.",
-        "sd": ">`.sd <x> <message>`"
-        "\nUsage: Creates a message that selfdestructs in x seconds."
-        "\nKeep the seconds under 100 since it puts your bot to sleep.",
+        "\nUntuk: Menghapus sejumlah x pesan terbaru Anda.",
+        "del": ">`.del`" "\nUntuk: Menghapus pesan yang Anda balas.",
+        "edit": ">`.edit <pesan baru>`"
+        "\nUntuk: Ganti pesan terakhir Anda dengan <pesan baru>.",
+        "sd": ">`.sd <x> <pesan>`"
+        "\nUntuk: Membuat pesan yang merusak pesan itu sendiri dalam x detik."
+        "\nPertahankan detik di bawah 100 karena bot Anda akan tidur",
     }
 )

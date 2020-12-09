@@ -789,14 +789,14 @@ async def lists(gdrive):
                 break
 
             file_name = files.get("name")
-            file_size = files.get("size", 0)
+            file_size = files.get("size", "({humanbytes(file_size)})")
             if files.get("mimeType") == "application/vnd.google-apps.folder":
                 link = files.get("webViewLink")
                 message += f"📁️ • [{file_name}]({link})\n"
             else:
                 link = files.get("webContentLink")
                 message += (
-                    f"📄️ • [{file_name}]({link}) - ({humanbytes(int(file_size))})\n"
+                    f"📄️ • [{file_name}]({link}) - (__{humanbytes(int(file_size))}__)\n"
                 )
             result.append(files)
         if len(result) >= page_size:
@@ -896,6 +896,21 @@ async def google_drive_managers(gdrive):
             except IndexError:
                 """ - If failed assumming value is folderId/fileId - """
                 f_id = name_or_id
+                if "http://" in name_or_id or "https://" in name_or_id:
+                    if "uc?id=" in name_or_id:
+                        f_id = name_or_id.split("uc?id=")[1]
+                        f_id = re.split("[? &]", f_id)[0]
+                    elif "folders/" in name_or_id:
+                    	f_id = name_or_id.split("folders/")[1]
+                        f_id = re.split("[? &]", f_id)[0]
+                    elif "folders/" in name_or_id:
+                    	f_id = name_or_id.split("folders/")[1]
+                        f_id = re.split("[? &]", f_id)[0]
+                    elif "/view" in name_or_id:
+                    	f_id = name_or_id.split("/")[-2]
+                    elif "open?id=" in name_or_id:
+                    	f_id = name_or_id.split("open?id=")[1]
+                        f_id = re.split("[? &]", f_id)[0]
                 try:
                     f = await get_information(service, f_id)
                 except Exception as e:

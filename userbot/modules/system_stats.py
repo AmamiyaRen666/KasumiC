@@ -15,7 +15,7 @@ from git import Repo
 from telethon import version
 from telethon.errors.rpcerrorlist import MediaEmptyError
 
-from userbot import ALIVE_LOGO, ALIVE_NAME, CMD_HELP, bot
+from userbot import HEROKU_APP_NAME, ALIVE_LOGO, ALIVE_NAME, CMD_HELP, bot
 from userbot.events import register
 
 # ================= CONSTANT =================
@@ -112,9 +112,9 @@ async def pipcheck(pip):
                     remove("output.txt")
                     return
                 await pip.edit(
-                    "**Kueri: **\n`"
+                    "**Kueri : **\n`"
                     f"pip3 search {pipmodule}"
-                    "`\n**Hasil: **\n`"
+                    "`\n**Hasil : **\n`"
                     f"{pipout}"
                     "`"
                 )
@@ -122,7 +122,7 @@ async def pipcheck(pip):
                 await pip.edit(
                     "**Kueri: **\n`"
                     f"pip3 search {pipmodule}"
-                    "`\n**Hasil: **\n`Tidak ada hasil yang dikembalikan/salah`"
+                    "`\n**Hasil : **\n`Tidak ada hasil yang dikembalikan/salah`"
                 )
         else:
             await pip.edit("`Gunakan .help pip untuk melihat contoh`")
@@ -133,13 +133,13 @@ async def amireallyalive(alive):
     """For .alive command, check if the bot is running."""
     logo = ALIVE_LOGO
     output = (
-        f"`KasumiC Aktif, siap melayani Anda`\n"
-        f"`=====================================`\n"
-        f"`• Python         :` v{python_version()}\n"
-        f"`• Telethon       :` v{version.__version__}\n"
-        f"`• Pengguna       :` {DEFAULTUSER}\n"
-        f"`=====================================`\n"
-        f"`======== Berjalan Di {repo.active_branch.name} =========`\n"
+        f"`{HEROKU_APP_NAME} aktif, siap melayani Anda`\n"
+        f"`=========================================`\n"
+        f"`• Python         :   v{python_version()}`\n"
+        f"`• Telethon       :   v{version.__version__}`\n"
+        f"`• Pengguna       :   {DEFAULTUSER}`\n"
+        f"`=========================================`\n"
+        f"`========== berjalan di {repo.active_branch.name} ===========`\n"
     )
     if ALIVE_LOGO:
         try:

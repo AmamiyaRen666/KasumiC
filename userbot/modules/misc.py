@@ -23,11 +23,11 @@ async def randomise(items):
     itemo = (items.text[8:]).split()
     if len(itemo) < 2:
         return await items.edit(
-            "`2 or more items are required! Check .help random for more info.`"
+            "`2 item atau lebih diperlukan! Periksa .help random untuk info lebih lanjut.`"
         )
     index = randint(1, len(itemo) - 1)
     await items.edit(
-        "**Query: **\n`" + items.text[8:] + "`\n**Output: **\n`" + itemo[index] + "`"
+        "**Kueri : **\n`" + items.text[8:] + "`\n**Keluaran : **\n`" + itemo[index] + "`"
     )
 
 
@@ -35,7 +35,7 @@ async def randomise(items):
 async def sleepybot(time):
     """ For .sleep command, let the userbot snooze for a few second. """
     counter = int(time.pattern_match.group(1))
-    await time.edit("`I am sulking and snoozing...`")
+    await time.edit("`Saya merajuk dan tertidur...`")
     if BOTLOG:
         str_counter = time_formatter(counter)
         await time.client.send_message(
@@ -43,13 +43,13 @@ async def sleepybot(time):
             f"You put the bot to sleep for {str_counter}.",
         )
     sleep(counter)
-    await time.edit("`OK, I'm awake now.`")
+    await time.edit("`Oke, saya sudah bangun sekarang.`")
 
 
 @register(outgoing=True, pattern=r"^\.shutdown$")
 async def killthebot(event):
     """ For .shutdown command, shut the bot down."""
-    await event.edit("`Goodbye...`")
+    await event.edit("`Selamat tinggal...`")
     if BOTLOG:
         await event.client.send_message(BOTLOG_CHATID, "#SHUTDOWN \n" "Bot shut down")
     await bot.disconnect()
@@ -57,7 +57,7 @@ async def killthebot(event):
 
 @register(outgoing=True, pattern=r"^\.restart$")
 async def killdabot(event):
-    await event.edit("`*i would be back in a moment*`")
+    await event.edit("`Saya akan kembali sebentar lagi`")
     if BOTLOG:
         await event.client.send_message(BOTLOG_CHATID, "#RESTART \n" "Bot Restarted")
     await bot.disconnect()
@@ -70,7 +70,7 @@ async def killdabot(event):
 @register(outgoing=True, pattern=r"^\.readme$")
 async def reedme(e):
     await e.edit(
-        "Here's something for you to read:\n"
+        "Di sini sesuatu untuk Anda baca:\n"
         "\n[WeebProject's README.md file](https://github.com/BianSepang/WeebProject/blob/master/README.md)"
         "\n[Setup Guide - Basic](https://telegra.ph/How-to-host-a-Telegram-Userbot-11-02)"
         "\n[Setup Guide - Google Drive](https://telegra.ph/How-To-Setup-Google-Drive-04-03)"
@@ -98,7 +98,13 @@ async def repeat(rep):
 @register(outgoing=True, pattern=r"^\.repo$")
 async def repo_is_here(wannasee):
     """ For .repo command, just returns the repo URL. """
-    await wannasee.edit("Here is my [Repo](https://github.com/AmamiyaRen666/WeebProject)")
+    await wannasee.edit("[Klik disini](https://github.com/BianSepang/WeebProject) untuk melihat base Repo yang saya gunakan.")
+
+
+@register(outgoing=True, pattern=r"^\.myrepo$")
+async def myrepo(see):
+    """ For .myrepo command, just return to my repo URL. """
+    await see.edit("[Klik disini](https://github.com/AmamiyaRen666/WeebProject) untuk melihat Repo saya.")
 
 
 @register(outgoing=True, pattern=r"^\.raw$")
@@ -114,7 +120,7 @@ async def raw(event):
         reply_to_id = event.message.id
     with io.BytesIO(str.encode(the_real_message)) as out_file:
         out_file.name = "raw_message_data.txt"
-        await event.edit("`Check the userbot log for the decoded message data !!`")
+        await event.edit("`Periksa log userbot untuk data pesan yang diterjemahkan!`")
         await event.client.send_file(
             BOTLOG_CHATID,
             out_file,
@@ -128,16 +134,16 @@ async def raw(event):
 CMD_HELP.update(
     {
         "random": ">`.random <item1> <item2> ... <itemN>`"
-        "\nUsage: Get a random item from the list of items.",
-        "sleep": ">`.sleep <seconds>`" "\nUsage: Let yours snooze for a few seconds.",
-        "shutdown": ">`.shutdown`" "\nUsage: Shutdown bot",
-        "repo": ">`.repo`" "\nUsage: Github Repo of this bot",
+        "\nUntuk: Dapatkan item acak dari daftar item.",
+        "sleep": ">`.sleep <detik>`" "\nUntuk: Biarkan bot Anda tidur selama beberapa detik.",
+        "shutdown": ">`.shutdown`" "\nUntuk: Matikan bot.",
+        "repo": ">`.repo`" "\nUntuk: Github Repo dari bot ini.",
         "readme": ">`.readme`"
-        "\nUsage: Provide links to setup the userbot and it's modules.",
-        "repeat": ">`.repeat <no> <text>`"
-        "\nUsage: Repeats the text for a number of times. Don't confuse this with spam tho.",
-        "restart": ">`.restart`" "\nUsage: Restarts the bot !!",
+        "\nUntuk: Berikan tautan untuk menyiapkan userbot dan modulnya.",
+        "repeat": ">`.repeat <no> <teks>`"
+        "\nUntuk: Ulangi teks tersebut beberapa kali. Jangan bingung ini dengan spam.",
+        "restart": ">`.restart`" "\nUntuk: Mulai ulang bot.",
         "raw": ">`.raw`"
-        "\nUsage: Get detailed JSON-like formatted data about replied message.",
+        "\nUntuk: Dapatkan data berformat seperti JSON mendetail tentang pesan yang dibalas.",
     }
 )

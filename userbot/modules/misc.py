@@ -102,9 +102,9 @@ async def repo_is_here(wannasee):
 
 
 @register(outgoing=True, pattern=r"^\.myrepo$")
-async def myrepo(see):
-    """ For .myrepo command, just return to my repo URL. """
-    await see.edit("[Klik disini](https://github.com/AmamiyaRen666/WeebProject) untuk melihat Repo saya.")
+async def myrepo(wannasee):
+    """ For .myrepo command, just returns to the URL. """
+    await wannasee.edit("[Klik disini](https://github.com/AmamiyaRen666/WeebProject) untuk melihat Repo saya.")
 
 
 @register(outgoing=True, pattern=r"^\.raw$")
@@ -137,7 +137,8 @@ CMD_HELP.update(
         "\nUntuk: Dapatkan item acak dari daftar item.",
         "sleep": ">`.sleep <detik>`" "\nUntuk: Biarkan bot Anda tidur selama beberapa detik.",
         "shutdown": ">`.shutdown`" "\nUntuk: Matikan bot.",
-        "repo": ">`.repo`" "\nUntuk: Github Repo dari bot ini.",
+        "repo": ">`.repo`" "\nUntuk: Github Repo asli dari bot ini.",
+        "myrepo": ">`.myrepo`" "\nUntuk: Github Repo saya.",
         "readme": ">`.readme`"
         "\nUntuk: Berikan tautan untuk menyiapkan userbot dan modulnya.",
         "repeat": ">`.repeat <no> <teks>`"

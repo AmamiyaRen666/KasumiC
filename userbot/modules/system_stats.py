@@ -137,7 +137,7 @@ async def amireallyalive(alive):
         f"`=========================================`\n"
         f"`• Python         :   v{python_version()}`\n"
         f"`• Telethon       :   v{version.__version__}`\n"
-        f"`• Pengguna       :   {DEFAULTUSER}`\n"
+        f"`• Pengguna       :   ` {DEFAULTUSER}\n"
         f"`=========================================`\n"
         f"`========== berjalan di {repo.active_branch.name} ===========`\n"
     )

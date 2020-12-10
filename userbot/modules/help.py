@@ -28,8 +28,8 @@ async def help(event):
         string = ""
         sep1 = "`=======================================================`"
         for i in sorted(CMD_HELP):
-            string += "" + str(i)
-            string += "  |  "
+            string += "`" + str(i)
+            string += "`  |  "
         await event.edit(
             f"{head}\
               \n{head2}\
